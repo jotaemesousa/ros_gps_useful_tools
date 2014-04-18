@@ -1,0 +1,6 @@
+devel/*
+build/*
+*.user
+*.bak
+*.*~
+*.txt.autosave
