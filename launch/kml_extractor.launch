@@ -1,0 +1,14 @@
+<launch>
+
+	<!-- The GPS to UTM converter-->
+		<node name="utm_odometry_node" pkg="gps_common" type="utm_odometry_node" output="screen" />
+
+	<!-- The kml extrator-->
+		<node name="kml_extractor" pkg="kml_extractor" type="kml_extractor_node" output="screen" >
+			<param name="kml_file" value="out.kml"/>
+			<param name="coordinates_filename" value="coordinates_utm.txt"/>
+			<param name="header_file_path" value="$(find kml_extractor)/src/header.yaml"/>
+			<param name="footer_file_path" value="$(find kml_extractor)/src/footer.yaml"/>
+		</node>
+		
+</launch>
