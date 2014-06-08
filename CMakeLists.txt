@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(kml_extractor)
+project(ros_gps_useful_tools)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-#  gps_commmon
+  #gps_umd
   roscpp
+  rospy
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -112,6 +114,18 @@ include_directories(
  target_link_libraries(kml_extractor_node
    ${catkin_LIBRARIES}
  )
+ 
+ ## Declare a cpp executable
+add_executable(xsens_gps_msg_merger_node src/xsens_gps_msg_merger_node.cpp)
+
+## Add cmake target dependencies of the executable/library
+## as an example, message headers may need to be generated before nodes
+# add_dependencies(xsens_gps_msg_merger_node xsens_gps_msg_merger_generate_messages_cpp)
+
+## Specify libraries to link a library or executable target against
+target_link_libraries(xsens_gps_msg_merger_node
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##

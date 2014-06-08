@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- GPS msg merger -->
+		<node name="xsens_gps_msg_merger_node" pkg="xsens_gps_msg_merger" type="xsens_gps_msg_merger_node" output="screen">
+			<remap from="/fix" to="/xsens/fix"/>
+			<remap from="/odom" to="/gps_odom"/>
+		</node>
+
+</launch>
